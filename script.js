@@ -1,43 +1,43 @@
-function openPatientMenu() {
+function selectUser(type) {
   document.getElementById('user-selection').classList.add('hidden');
-  document.getElementById('patient-menu').classList.remove('hidden');
+  const authMessage = document.getElementById('auth-message');
+  authMessage.textContent = type === 'patient'
+    ? '¡Bienvenido, Paciente! Por favor, selecciona una opción:'
+    : '¡Bienvenido, Doctor! Por favor, selecciona una opción:';
+  document.getElementById('auth-options').classList.remove('hidden');
 }
 
-function openDoctorMenu() {
-  document.getElementById('user-selection').classList.add('hidden');
-  document.getElementById('doctor-menu').classList.remove('hidden');
+function showLogin() {
+  document.getElementById('auth-options').classList.add('hidden');
+  document.getElementById('login').classList.remove('hidden');
 }
 
-function openSchedule() {
-  document.getElementById('patient-menu').classList.add('hidden');
-  document.getElementById('schedule').classList.remove('hidden');
+function showRegister() {
+  document.getElementById('auth-options').classList.add('hidden');
+  document.getElementById('register').classList.remove('hidden');
 }
 
-function viewAppointments() {
-  alert("Aquí puedes ver tus citas.");
+function showRecover() {
+  document.getElementById('auth-options').classList.add('hidden');
+  document.getElementById('recover').classList.remove('hidden');
 }
 
-function viewScheduledAppointments() {
-  const appointmentList = document.getElementById('appointment-list');
-  appointmentList.innerHTML = `
-    <div class="appointment">
-      <p><strong>Paciente:</strong> Juan Pérez</p>
-      <p><strong>Fecha:</strong> 2023-12-05</p>
-      <p><strong>Hora:</strong> 10:00 AM</p>
-      <p><strong>Tipo:</strong> Presencial</p>
-      <button class="btn" onclick="confirmAppointment()">Confirmar</button>
-      <button class="btn" onclick="addNotes()">Agregar Notas</button>
-    </div>
-  `;
-  document.getElementById('doctor-menu').classList.add('hidden');
-  document.getElementById('appointments').classList.remove('hidden');
+function goBack() {
+  document.querySelectorAll('section').forEach(section => section.classList.add('hidden'));
+  document.getElementById('user-selection').classList.remove('hidden');
 }
 
-function confirmAppointment() {
-  alert("Cita confirmada.");
-}
+document.getElementById('login-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Inicio de sesión exitoso.');
+});
 
-function addNotes() {
-  const notes = prompt("Escribe tus notas:");
-  if (notes) alert("Notas guardadas.");
-}
+document.getElementById('register-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Registro exitoso.');
+});
+
+document.getElementById('recover-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Se envió un correo para recuperar tu contraseña.');
+});
