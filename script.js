@@ -2,8 +2,8 @@ function selectUser(type) {
   document.getElementById('user-selection').classList.add('hidden');
   const authMessage = document.getElementById('auth-message');
   authMessage.textContent = type === 'patient'
-    ? '¡Bienvenido, Paciente! Por favor, selecciona una opción:'
-    : '¡Bienvenido, Doctor! Por favor, selecciona una opción:';
+    ? '¡Bienvenido, Paciente! Selecciona una opción para continuar:'
+    : '¡Bienvenido, Doctor! Selecciona una opción para continuar:';
   document.getElementById('auth-options').classList.remove('hidden');
 }
 
@@ -18,7 +18,7 @@ function showRegister() {
 }
 
 function showRecover() {
-  document.getElementById('auth-options').classList.add('hidden');
+  document.getElementById('login').classList.add('hidden');
   document.getElementById('recover').classList.remove('hidden');
 }
 
