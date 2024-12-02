@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Salud Programada</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Salud Programada</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
-        <h1>Bienvenido a Mi Salud Programada</h1>
-        <p>Una solución moderna para gestionar citas médicas</p>
-    </header>
+  <div id="app">
+    <div id="welcome">
+      <h1>Mi Salud Programada</h1>
+      <p>Bienvenido a la plataforma para agendar consultas médicas.</p>
+      <button id="doctorButton">Soy Doctor</button>
+      <button id="patientButton">Soy Paciente</button>
+    </div>
 
-    <!-- Sección de Selección de Usuario -->
-    <section id="user-selection">
-        <h2>Selecciona tu tipo de usuario</h2>
-        <div class="user-options">
-            <button onclick="showLogin('paciente')">Paciente</button>
-            <button onclick="showLogin('doctor')">Doctor</button>
-            <button onclick="showLogin('otros')">Otros</button>
-        </div>
-    </section>
+    <div id="login" style="display:none;">
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+      <p><a id="forgotPassword" href="#">¿Olvidaste tu contraseña?</a></p>
+    </div>
 
-    <!-- Sección de Inicio de Sesión -->
-    <section id="login-section" style="display:none;">
-        <h2 id="login-title"></h2>
-        <form id="login-form">
-            <input type="email" placeholder="Correo Electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <p id="forgot-password" onclick="recoverPassword()">¿Olvidaste tu contraseña?</p>
-        <button id="register-button" style="display:none;" onclick="registerPatient()">Registrarse</button>
-    </section>
+    <div id="register" style="display:none;">
+      <h2>Registro de Paciente</h2>
+      <form id="registerForm">
+        <input type="text" id="name" placeholder="Nombre completo" required>
+        <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+        <input type="password" id="registerPassword" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
 
-    <script src="script.js"></script>
+    <div id="doctorDashboard" style="display:none;">
+      <h2>Panel del Doctor</h2>
+      <div id="requests"></div>
+    </div>
+
+    <div id="patientDashboard" style="display:none;">
+      <h2>Panel del Paciente</h2>
+      <p>Próximas citas:</p>
+      <div id="appointments"></div>
+    </div>
+  </div>
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
