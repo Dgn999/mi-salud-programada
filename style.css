@@ -1,16 +1,19 @@
+/* Estilo general */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #007bff, #6c757d);
+  background: linear-gradient(135deg, #005f73, #0a9396);
   color: white;
   text-align: center;
 }
 
+/* Contenedor principal */
 .container {
   padding: 20px;
 }
 
+/* Encabezado */
 header {
   margin-bottom: 20px;
 }
@@ -23,27 +26,41 @@ p {
   margin: 5px 0 20px;
 }
 
+/* Botones */
 .btn {
-  background: #28a745;
+  background: #005f73;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   margin: 10px;
-  border-radius: 5px;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-  background: #218838;
+  background: #0a9396;
+  transform: scale(1.05);
 }
 
 .secondary-btn {
   background: #6c757d;
-  color: white;
 }
 
+.recover-link {
+  display: block;
+  margin-top: 10px;
+  color: #ffdd57;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.recover-link:hover {
+  text-decoration: underline;
+}
+
+/* Formularios */
 form {
   display: flex;
   flex-direction: column;
@@ -52,15 +69,27 @@ form {
 
 form label {
   margin: 10px 0 5px;
+  font-weight: bold;
 }
 
 form input, form select {
-  padding: 5px;
+  padding: 10px;
   font-size: 1rem;
   margin-bottom: 15px;
   width: 80%;
+  border-radius: 5px;
+  border: none;
 }
 
+/* Ocultar secciones */
 .hidden {
   display: none;
+}
+
+/* Secciones de autenticación */
+.auth-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
