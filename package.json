@@ -1,0 +1,9 @@
+{
+  "name": "mi-pagina-web",
+  "version": "1.0.0",
+  "description": "Página para agendar consultas médicas",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {}
+}
