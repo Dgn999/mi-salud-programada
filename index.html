@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Salud Programada</title>
   <link rel="stylesheet" href="style.css">
+  <title>Mi Salud Programada</title>
 </head>
 <body>
-  <!-- Ventana de bienvenida -->
-  <div class="container" id="welcome-screen">
-    <h1>¡Bienvenido a Mi Salud Programada!</h1>
-    <p>Tu solución para agendar consultas médicas de forma fácil y rápida.</p>
-    <button class="start-btn" onclick="showUserSelection()">Comenzar</button>
-  </div>
+  <div class="container">
+    <header>
+      <h1>¡Bienvenido a Mi Salud Programada!</h1>
+      <p>La solución para agendar y gestionar consultas médicas fácilmente.</p>
+    </header>
 
-  <!-- Ventana de selección de tipo de usuario -->
-  <div class="container hidden" id="user-selection">
-    <h2>¿Quién eres?</h2>
-    <p>Selecciona el tipo de usuario para continuar:</p>
-    <div class="user-buttons">
-      <button class="user-btn" onclick="selectUser('doctor')">Doctor</button>
-      <button class="user-btn" onclick="selectUser('paciente')">Paciente</button>
-      <button class="user-btn" onclick="selectUser('otro')">Otro</button>
-    </div>
-  </div>
+    <!-- Selección de Usuario -->
+    <section id="user-selection" class="selection">
+      <h2>Selecciona tu tipo de usuario</h2>
+      <button class="btn" onclick="openPatientMenu()">Paciente</button>
+      <button class="btn" onclick="openDoctorMenu()">Doctor</button>
+    </section>
 
-  <!-- Ventana de agendar cita (placeholder para futuras funcionalidades) -->
-  <div class="container hidden" id="appointment-screen">
-    <h2>Agendar Cita</h2>
-    <p>En esta sección podrás agendar tus citas médicas.</p>
-    <button class="back-btn" onclick="goBack()">Volver</button>
-  </div>
+    <!-- Menú Paciente -->
+    <section id="patient-menu" class="menu hidden">
+      <h2>Paciente</h2>
+      <button class="btn" onclick="openSchedule()">Agendar Cita</button>
+      <button class="btn" onclick="viewAppointments()">Ver Mis Citas</button>
+    </section>
 
+    <!-- Menú Doctor -->
+    <section id="doctor-menu" class="menu hidden">
+      <h2>Doctor</h2>
+      <button class="btn" onclick="viewScheduledAppointments()">Ver Citas Agendadas</button>
+    </section>
+
+    <!-- Agendar Cita -->
+    <section id="schedule" class="hidden">
+      <h2>Agendar una Cita</h2>
+      <form>
+        <label for="date">Fecha:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Hora:</label>
+        <input type="time" id="time" required>
+
+        <label for="type">Tipo de Consulta:</label>
+        <select id="type" required>
+          <option value="presencial">Presencial</option>
+          <option value="online">Online</option>
+        </select>
+
+        <button type="submit" class="btn">Confirmar</button>
+      </form>
+    </section>
+
+    <!-- Citas del Doctor -->
+    <section id="appointments" class="hidden">
+      <h2>Citas Agendadas</h2>
+      <div id="appointment-list"></div>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
