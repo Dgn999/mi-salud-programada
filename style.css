@@ -1,29 +1,97 @@
+/* General */
 body {
     font-family: Arial, sans-serif;
-    background-color: #00796b;
-    color: #fff;
-    text-align: center;
     margin: 0;
     padding: 0;
+    background: #f0f4f8;
+    color: #333;
 }
 
-.container {
+/* Encabezado */
+header {
+    text-align: center;
     padding: 20px;
-    margin-top: 20%;
+    background: #0066cc;
+    color: #fff;
 }
 
-button {
-    background-color: #ffffff;
-    color: #00796b;
-    padding: 10px 20px;
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Sección de Selección de Usuario */
+#user-selection {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-options button {
     margin: 10px;
+    padding: 15px 25px;
+    font-size: 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    background: #005bb5;
+    color: #fff;
 }
 
-button:hover {
-    background-color: #004d40;
+.user-options button:hover {
+    background: #003f7f;
+}
+
+/* Sección de Inicio de Sesión */
+#login-section {
+    padding: 20px;
+    text-align: center;
+}
+
+#login-section form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#login-section input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-section button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #005bb5;
     color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#login-section button:hover {
+    background: #003f7f;
+}
+
+#forgot-password {
+    margin-top: 10px;
+    color: #005bb5;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#register-button {
+    margin-top: 20px;
+    background: #00b33c;
+}
+
+#register-button:hover {
+    background: #008a29;
 }
