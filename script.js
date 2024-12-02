@@ -1,43 +1,38 @@
-function selectUser(type) {
-  document.getElementById('user-selection').classList.add('hidden');
-  const authMessage = document.getElementById('auth-message');
-  authMessage.textContent = type === 'patient'
-    ? '¡Bienvenido, Paciente! Selecciona una opción para continuar:'
-    : '¡Bienvenido, Doctor! Selecciona una opción para continuar:';
-  document.getElementById('auth-options').classList.remove('hidden');
-}
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", () => {
+    // Botones de selección
+    const doctorButton = document.getElementById("doctor-button");
+    const patientButton = document.getElementById("patient-button");
 
-function showLogin() {
-  document.getElementById('auth-options').classList.add('hidden');
-  document.getElementById('login').classList.remove('hidden');
-}
-
-function showRegister() {
-  document.getElementById('auth-options').classList.add('hidden');
-  document.getElementById('register').classList.remove('hidden');
-}
-
-function showRecover() {
-  document.getElementById('login').classList.add('hidden');
-  document.getElementById('recover').classList.remove('hidden');
-}
-
-function goBack() {
-  document.querySelectorAll('section').forEach(section => section.classList.add('hidden'));
-  document.getElementById('user-selection').classList.remove('hidden');
-}
-
-document.getElementById('login-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert('Inicio de sesión exitoso.');
+    // Agregar eventos a los botones
+    doctorButton.addEventListener("click", () => showLogin("doctor"));
+    patientButton.addEventListener("click", () => showLogin("paciente"));
 });
 
-document.getElementById('register-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert('Registro exitoso.');
-});
+// Mostrar la sección de inicio de sesión
+function showLogin(userType) {
+    const loginSection = document.getElementById("login-section");
+    const loginTitle = document.getElementById("login-title");
+    const registerButton = document.getElementById("register-button");
 
-document.getElementById('recover-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert('Se envió un correo para recuperar tu contraseña.');
-});
+    loginSection.style.display = "block"; // Mostrar la sección de inicio de sesión
+    document.getElementById("user-selection").style.display = "none"; // Ocultar selección de usuario
+
+    if (userType === "paciente") {
+        loginTitle.textContent = "Inicio de Sesión - Paciente";
+        registerButton.style.display = "block"; // Mostrar botón de registro
+    } else if (userType === "doctor") {
+        loginTitle.textContent = "Inicio de Sesión - Doctor";
+        registerButton.style.display = "none"; // Ocultar botón de registro
+    }
+}
+
+// Recuperar contraseña
+function recoverPassword() {
+    alert("Por favor, contacta con soporte para recuperar tu contraseña.");
+}
+
+// Registro de pacientes
+function registerPatient() {
+    alert("Por favor, completa el formulario de registro (próxima funcionalidad).");
+}
