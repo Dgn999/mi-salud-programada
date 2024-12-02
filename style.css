@@ -1,28 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f0f0f0;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #007bff, #6c757d);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1em 0;
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out;
 }
+
+.hidden {
+  display: none;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background: #28a745;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
+
 button:hover {
-    background-color: #45a049;
+  background: #218838;
 }
-footer {
-    margin-top: 2em;
-    font-size: 0.9em;
+
+.start-btn {
+  background: #ffc107;
+  color: #000;
+}
+
+.start-btn:hover {
+  background: #e0a800;
+}
+
+.user-btn {
+  margin: 10px;
+}
+
+.back-btn {
+  background: #dc3545;
+}
+
+.back-btn:hover {
+  background: #c82333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
