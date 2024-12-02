@@ -5,64 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Salud Programada</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Encabezado -->
     <header>
         <h1>Mi Salud Programada</h1>
         <p>Bienvenido a la plataforma para agendar consultas médicas.</p>
     </header>
 
-    <main id="main-content">
-        <!-- Selección de tipo de usuario -->
-        <section id="user-selection">
-            <h2>Selecciona tu tipo de usuario</h2>
-            <button class="user-type" onclick="showLogin('doctor')">Soy Doctor</button>
-            <button class="user-type" onclick="showLogin('patient')">Soy Paciente</button>
-        </section>
+    <!-- Sección de Selección de Usuario -->
+    <section id="user-selection">
+        <h2>Selecciona tu tipo de usuario</h2>
+        <div class="user-options">
+            <button id="doctor-button">Soy Doctor</button>
+            <button id="patient-button">Soy Paciente</button>
+        </div>
+    </section>
 
-        <!-- Sección de Login -->
-        <section id="login-section" class="hidden">
-            <h2 id="login-title">Inicia Sesión</h2>
-            <form id="login-form">
-                <input type="email" id="login-email" placeholder="Correo electrónico" required>
-                <input type="password" id="login-password" placeholder="Contraseña" required>
-                <button type="button" onclick="login()">Iniciar Sesión</button>
-            </form>
-            <p id="forgot-password" class="hidden">
-                <a href="#" onclick="recoverPassword()">¿Olvidaste tu contraseña?</a>
-            </p>
-        </section>
+    <!-- Sección de Inicio de Sesión -->
+    <section id="login-section" style="display:none;">
+        <h2 id="login-title"></h2>
+        <form id="login-form">
+            <input type="email" placeholder="Correo Electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="forgot-password" onclick="recoverPassword()">¿Olvidaste tu contraseña?</p>
+        <button id="register-button" style="display:none;" onclick="registerPatient()">Registrarse</button>
+    </section>
 
-        <!-- Registro de Pacientes -->
-        <section id="patient-register-section" class="hidden">
-            <h2>Registro de Pacientes</h2>
-            <form id="register-form">
-                <input type="text" id="patient-name" placeholder="Nombre completo" required>
-                <input type="email" id="patient-email" placeholder="Correo electrónico" required>
-                <input type="password" id="patient-password" placeholder="Contraseña" required>
-                <button type="button" onclick="registerPatient()">Registrar</button>
-            </form>
-        </section>
-
-        <!-- Mensaje de acceso pendiente -->
-        <section id="access-pending" class="hidden">
-            <h2>Acceso pendiente</h2>
-            <p>Tu solicitud está pendiente de aprobación por un doctor. Por favor, espera.</p>
-        </section>
-
-        <!-- Panel de Doctor -->
-        <section id="doctor-panel" class="hidden">
-            <h2>Panel del Doctor</h2>
-            <div id="access-requests">
-                <h3>Solicitudes de Acceso</h3>
-                <ul id="requests-list"></ul>
-            </div>
-            <div id="registered-users">
-                <h3>Usuarios Registrados</h3>
-                <ul id="users-list"></ul>
-            </div>
-        </section>
-    </main>
+    <script src="script.js"></script>
 </body>
 </html>
