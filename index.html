@@ -1,71 +1,40 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Salud Programada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Bienvenido a Mi Salud Programada</h1>
+        <p>Una solución moderna para gestionar citas médicas</p>
+    </header>
 
-// Middleware global: se aplica a todas las rutas
-app.use((req, res, next) => {
-    console.log(`Request method: ${req.method} | Request URL: ${req.url}`);
-    next(); // Pasa al siguiente middleware o ruta
-});
+    <!-- Sección de Selección de Usuario -->
+    <section id="user-selection">
+        <h2>Selecciona tu tipo de usuario</h2>
+        <div class="user-options">
+            <button onclick="showLogin('paciente')">Paciente</button>
+            <button onclick="showLogin('doctor')">Doctor</button>
+            <button onclick="showLogin('otros')">Otros</button>
+        </div>
+    </section>
 
-// Middleware para analizar el cuerpo de las solicitudes en formato JSON
-app.use(express.json());
+    <!-- Sección de Inicio de Sesión -->
+    <section id="login-section" style="display:none;">
+        <h2 id="login-title"></h2>
+        <form id="login-form">
+            <input type="email" placeholder="Correo Electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="forgot-password" onclick="recoverPassword()">¿Olvidaste tu contraseña?</p>
+        <button id="register-button" style="display:none;" onclick="registerPatient()">Registrarse</button>
+    </section>
 
-// Middleware específico para una ruta
-const checkAuth = (req, res, next) => {
-    const token = req.headers['authorization'];
-
-    if (!token) {
-        return res.status(401).json({ error: 'Acceso no autorizado, falta el token.' });
-    }
-
-    if (token === 'valid-token') {
-        console.log('Token validado con éxito');
-        next(); // Pasa a la siguiente capa
-    } else {
-        return res.status(403).json({ error: 'Token inválido.' });
-    }
-};
-
-// Ruta sin middleware
-app.get('/', (req, res) => {
-    res.send('¡Bienvenido a la aplicación!');
-});
-
-// Ruta con middleware específico
-app.get('/protected', checkAuth, (req, res) => {
-    res.send('¡Has accedido a una ruta protegida!');
-});
-
-// Middleware específico para un grupo de rutas (Router)
-const userRouter = express.Router();
-
-// Middleware aplicado a todas las rutas del router
-userRouter.use((req, res, next) => {
-    console.log('Middleware de usuario aplicado');
-    next();
-});
-
-// Ruta dentro del router
-userRouter.get('/profile', (req, res) => {
-    res.json({ user: 'John Doe', email: 'john.doe@example.com' });
-});
-
-// Otra ruta dentro del router
-userRouter.get('/settings', (req, res) => {
-    res.json({ theme: 'dark', notifications: true });
-});
-
-// Asignar el router al camino `/users`
-app.use('/users', userRouter);
-
-// Middleware de manejo de errores (debe ir al final)
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: 'Algo salió mal. Por favor intenta más tarde.' });
-});
-
-// Iniciar el servidor
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
-});
+    <script src="script.js"></script>
+</body>
+</html>
