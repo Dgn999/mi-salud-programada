@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
+    <div class="container">
         <h1>Mi Salud Programada</h1>
         <p>Bienvenido a la plataforma para agendar consultas médicas.</p>
-    </header>
-
-    <!-- Sección de Selección de Usuario -->
-    <section id="user-selection">
         <h2>Selecciona tu tipo de usuario</h2>
-        <div class="user-options">
-            <button id="doctor-button">Soy Doctor</button>
-            <button id="patient-button">Soy Paciente</button>
-        </div>
-    </section>
-
-    <!-- Sección de Inicio de Sesión -->
-    <section id="login-section" style="display:none;">
-        <h2 id="login-title"></h2>
-        <form id="login-form">
-            <input type="email" placeholder="Correo Electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <p id="forgot-password" onclick="recoverPassword()">¿Olvidaste tu contraseña?</p>
-        <button id="register-button" style="display:none;" onclick="registerPatient()">Registrarse</button>
-    </section>
-
+        <button onclick="redirectDoctor()">Soy Doctor</button>
+        <button onclick="redirectPatient()">Soy Paciente</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
