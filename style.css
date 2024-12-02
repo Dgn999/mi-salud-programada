@@ -39,8 +39,9 @@ p {
   background: #218838;
 }
 
-.hidden {
-  display: none;
+.secondary-btn {
+  background: #6c757d;
+  color: white;
 }
 
 form {
@@ -57,9 +58,9 @@ form input, form select {
   padding: 5px;
   font-size: 1rem;
   margin-bottom: 15px;
+  width: 80%;
 }
 
-form button {
-  background: #007bff;
-  color: white;
+.hidden {
+  display: none;
 }
