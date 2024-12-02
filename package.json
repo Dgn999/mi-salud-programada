@@ -1,9 +1,13 @@
 {
   "name": "mi-pagina-web",
   "version": "1.0.0",
-  "description": "Página para agendar consultas médicas",
+  "description": "Aplicación para gestión médica",
+  "main": "index.js",
   "scripts": {
-    "start": "serve ."
+    "start": "npx serve .",
+    "build": "echo 'No build process defined, add one if necessary'",
+    "deploy": "firebase deploy"
   },
-  "dependencies": {}
+  "author": "Tu Nombre",
+  "license": "ISC"
 }
